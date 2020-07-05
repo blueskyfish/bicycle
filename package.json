@@ -1,0 +1,22 @@
+{
+  "name": "bicycle",
+  "version": "0.0.1",
+  "description": "A small application to manage bikes.",
+  "author": {
+    "name": "Blueskyfish",
+    "url": "https://blueskyfish.de",
+    "email": "blueskyfish@blueskyfish.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blueskyfish/bicycle.git"
+  },
+  "license": "MIT",
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "private": true
+}
