@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/ng-openapi-gen/ng-openapi-gen-schema.json",
+  "input": "http://localhost:20050/openapi.json",
+  "output": "src/app/backend",
+  "modelIndex": true,
+  "modelPrefix": "Bike",
+  "module": "BikeBackendModule",
+  "configuration": "BikeBackendConfig",
+  "requestBuilder": "BikeRequestBuilder",
+  "baseService": "BikeBaseService",
+  "indexFile": true,
+  "response": "BikeHttpResponse",
+  "serviceIndex": true,
+  "servicePrefix": "Bike"
+}
