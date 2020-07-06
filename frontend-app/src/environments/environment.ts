@@ -6,7 +6,7 @@ export const environment = {
   /**
    * The api url from backend
    */
-  apiUrl: 'api',
+  backendApi: 'api',
 };
 
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.

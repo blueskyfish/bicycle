@@ -5,6 +5,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BikeBackendModule } from './backend';
+import { BikeCommonModule } from './common/common.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +15,11 @@ import { BikeBackendModule } from './backend';
     BrowserModule,
     HttpClientModule,
 
+    BikeCommonModule.forRoot(localStorage, {
+      backendApi: environment.backendApi,
+    }),
     BikeBackendModule.forRoot({
-      rootUrl: environment.apiUrl,
+      rootUrl: environment.backendApi,
     }),
     AppRoutingModule
   ],
