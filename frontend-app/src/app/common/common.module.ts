@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { BACKEND_CONFIG } from './service/backend.service';
 
 /**
- * Teh configuration interface for the {@link BikeCommonModule}
+ * The configuration interface for the {@link BikeCommonModule}
  */
 export interface BikeCommonConfig {
 
