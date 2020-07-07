@@ -16,7 +16,8 @@ export interface BikeCommonConfig {
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ]
 })
 export class BikeCommonModule {
