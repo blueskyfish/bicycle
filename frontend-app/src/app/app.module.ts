@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BikeBackendModule } from './backend';
 import { BikeCommonModule } from './common/common.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BikeCommonModule } from './common/common.module';
     BikeBackendModule.forRoot({
       rootUrl: environment.backendApi,
     }),
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

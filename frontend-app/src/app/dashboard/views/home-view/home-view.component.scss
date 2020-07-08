@@ -1,0 +1,10 @@
+
+@import "~src/scss/bicycle";
+
+@include on-host(column) {
+  .bike-home {
+    @include flex-resizable();
+    @include display-flex(column);
+    overflow: auto;
+  }
+}
