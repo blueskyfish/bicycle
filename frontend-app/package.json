@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "backend": "./node_modules/.bin/ng-openapi-gen --config ./openapi-backend.json"
+    "backend": "./node_modules/.bin/ng-openapi-gen --config ./openapi-backend.json",
+    "copy:fonts": "ts-node ./copy-fonts.ts"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "moment": "^2.27.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
+    "typeface-roboto": "^0.0.75",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
