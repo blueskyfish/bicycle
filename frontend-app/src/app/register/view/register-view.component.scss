@@ -2,9 +2,22 @@
 @import "~src/scss/bicycle";
 
 @include on-host(column) {
+
   .bike-register {
     @include flex-resizable();
     @include display-flex(column);
     overflow: auto;
+
+    .form {
+
+      .picture-box {
+        @include absHeight(6rem);
+
+        bike-picture-bicycle {
+          margin: 0 auto 1rem auto;
+        }
+      }
+    }
+
   }
 }

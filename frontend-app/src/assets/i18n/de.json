@@ -1,0 +1,18 @@
+{
+  "app": {
+    "login-view": {
+      "title": "Anmelden bei Bicycle",
+      "label": {
+        "email": "E-Mail",
+        "password": "Passwort"
+      },
+      "command": {
+        "login": "Anmelden"
+      },
+      "message": {
+        "title": "Registrieren",
+        "text": "Oder einen neuen Account erstellen ..."
+      }
+    }
+  }
+}
