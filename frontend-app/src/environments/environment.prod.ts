@@ -4,5 +4,5 @@ export const environment = {
   /**
    * The api url from backend
    */
-  apiUrl: '??',
+  backendApi: '??',
 };

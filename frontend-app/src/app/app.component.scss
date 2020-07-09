@@ -1,4 +1,14 @@
 
-.bike-container {
+@import "~src/scss/bicycle";
+
+@include on-host(column) {
+
+  .bike-container {
+    @include display-flex(column);
+    @include flex-resizable();
+
+    overflow: auto;
+
+  }
 
 }
