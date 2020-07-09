@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxsModule } from '@ngxs/store';
 import { BikeElementsModule } from '../elements/elements.module';
 import { LoginViewComponent } from './view/login-view.component';
 
@@ -25,6 +26,7 @@ import { LoginViewComponent } from './view/login-view.component';
     RouterModule,
 
     TranslateModule,
+    NgxsModule,
 
     MatIconModule,
     MatFormFieldModule,

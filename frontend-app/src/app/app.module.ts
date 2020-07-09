@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { BikeBackendModule } from './backend';
 import { BikeCommonModule } from './common/common.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BikeStoreModule } from './store/store.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       }
     }),
 
+    BikeStoreModule,
     BikeCommonModule.forRoot(localStorage, {
       backendApi: environment.backendApi,
     }),
@@ -49,7 +51,6 @@ export class AppModule {
     this.initializeIcons();
     this.initialTranslate();
   }
-
 
   private initializeIcons(): void {
     this.iconRegistry.addSvgIconSet(this.sanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg'));
