@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsModule } from '@ngxs/store';
 import { StateClass } from '@ngxs/store/internals';
 import { NgxsConfig } from '@ngxs/store/src/symbols';
 import { environment } from '../../environments/environment';
 import { ErrorStateService } from './service/error';
-import { RouteStateService } from './service/route';
 import { UserStateService } from './service/user';
 
 const storeStates: StateClass[] = [
   ErrorStateService,
-  UserStateService,
-  RouteStateService,
+  UserStateService
 ];
 
 const storeOptions: Partial<NgxsConfig> = {
@@ -30,10 +29,11 @@ const storeOptions: Partial<NgxsConfig> = {
     CommonModule,
 
     NgxsModule.forRoot(storeStates, storeOptions),
+    NgxsRouterPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot({
       disabled: environment.production,
-      name: 'BicycleRedux'
-    })
+      name: 'Bicycle-Store'
+    }),
   ],
   exports: [
     NgxsModule,

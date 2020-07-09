@@ -3,7 +3,7 @@ import { Action, State, StateContext, StateToken } from '@ngxs/store';
 import { Error } from './error-actions';
 import { ErrorStateModel, initialErrorState } from './error-state.model';
 
-export const ERROR_STATE_TOKEN = new StateToken('error');
+export const ERROR_STATE_TOKEN = new StateToken<ErrorStateModel>('error');
 
 @State<ErrorStateModel>({
   name: ERROR_STATE_TOKEN,
