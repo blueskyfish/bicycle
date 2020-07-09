@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Action, NgxsAfterBootstrap, State, StateContext, StateToken } from '@ngxs/store';
-import { EMPTY, of } from 'rxjs';
-import { catchError, map, mergeMap, tap } from 'rxjs/operators';
-import { BikeErrorBody, BikeLoginUser, BikeUserInfo, BikeUserService } from '../../../backend';
+import { Navigate } from '@ngxs/router-plugin'
+import { EMPTY } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
+import { BikeLoginUser, BikeUserInfo, BikeUserService } from '../../../backend';
 import { RouteNames } from '../../../common/route.names';
 import { AuthService } from '../../../common/service/auth.service';
-import { ErrorItem } from '../error';
 import { Error } from '../error/error-actions';
-import { Route } from '../route';
 import { User } from './user-actions';
 import { initialUserState, UserStateModel } from './user-state.model';
-import appendError = Error.appendError;
 import handleError = Error.handleError;
 
 export const USER_STATE_TOKEN = new StateToken<UserStateModel>('user');
@@ -57,7 +55,7 @@ export class UserStateService implements NgxsAfterBootstrap {
         }),
         mergeMap((result: any) => {
           if (result === true) {
-            return ctx.dispatch(new Route.Navigate([RouteNames.Root, RouteNames.Home]));
+            return ctx.dispatch(new Navigate([RouteNames.Root, RouteNames.Home]));
           }
           return ctx.dispatch(Error.handleError(result));
         })
