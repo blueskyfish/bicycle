@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { BikeBackendModule } from './backend';
 import { BikeCommonModule } from './common/common.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BikeStoreModule } from './store/store.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { BikeStoreModule } from './store/store.module';
       }
     }),
 
-    BikeStoreModule,
     BikeCommonModule.forRoot(localStorage, {
       backendApi: environment.backendApi,
     }),
