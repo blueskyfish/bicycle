@@ -1,4 +1,5 @@
-import { Action, createReducer } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
+import { UserActions } from './user.actions';
 import { UserState } from './user.state';
 
 export const initial: UserState = {
@@ -9,6 +10,11 @@ export const initial: UserState = {
 };
 
 const userReducer = createReducer(initial,
+  on(UserActions.updateUser, (state, action) => (
+    {
+      ...action.user
+    }
+  )),
 );
 
 export function reducer(state: UserState|undefined, action: Action) {

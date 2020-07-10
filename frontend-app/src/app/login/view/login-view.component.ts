@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { BikeLoginPayload } from '../../backend';
+import { UserActions } from '../../store/user/user.actions';
 
 @Component({
   selector: 'bike-login-view',
@@ -14,12 +16,13 @@ export class LoginViewComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(8)])
   });
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
   }
 
   login(): void {
     const payload: BikeLoginPayload = this.loginForm.value;
+    this.store.dispatch(UserActions.loginUser({payload}));
   }
 }
