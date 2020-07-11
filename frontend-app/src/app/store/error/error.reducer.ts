@@ -10,6 +10,7 @@ export const initial: ErrorState = {
 
 const errorReducer = createReducer(initial,
   on(ErrorActions.appendError, (state, action) => ErrorUtil.appendError(state, action.payload)),
+  on(ErrorActions.removeError, (state, action) => ErrorUtil.removeError(state, action.id)),
 );
 
 export function reducer(state: ErrorState | undefined, action: Action) {
