@@ -1,5 +1,9 @@
 
 export interface ErrorMessage {
+  /**
+   * The error id
+   */
+  id: number;
   status: number;
   group: string;
   code: string;
