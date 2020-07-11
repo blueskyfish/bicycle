@@ -1,5 +1,7 @@
-import { UserState } from './user/user.state';
+import { ErrorState } from './error';
+import { UserState } from './user';
 
 export interface StoreState {
+  error: ErrorState;
   user: UserState;
 }

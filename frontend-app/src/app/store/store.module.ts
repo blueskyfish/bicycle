@@ -14,6 +14,10 @@ const effectServices: any[] = [
   imports: [
     StoreModule.forRoot(fromStore.reducer, {
       initialState: fromStore.initial,
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+      }
     }),
     EffectsModule.forRoot(effectServices),
   ],

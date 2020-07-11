@@ -5,6 +5,7 @@ import { catchError, delay, map, mergeMap, switchMap } from 'rxjs/operators';
 import { BikeUserService } from '../../backend';
 import { RouteNames } from '../../common/route.names';
 import { AuthService } from '../../common/service/auth.service';
+import { errorHandler } from '../error';
 import { RouteActions } from '../route';
 import { UserActions } from './user.actions';
 
@@ -42,10 +43,7 @@ export class UserEffectService {
                 }),
               );
             }),
-            catchError(reason => {
-              console.log('> debug: Error on =>', reason);
-              return EMPTY;
-            })
+            catchError(errorHandler('user.login')),
           );
       })
     )
@@ -59,7 +57,8 @@ export class UserEffectService {
         if (this.authService.isAuth) {
           return this.userService.getInfo()
             .pipe(
-              map(user => UserActions.updateUser({ user }))
+              map(user => UserActions.updateUser({ user })),
+              catchError(errorHandler('user.info')),
             );
         }
         return EMPTY;
