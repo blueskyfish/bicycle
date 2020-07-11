@@ -14,4 +14,17 @@ export class ErrorUtil {
     }
     return newState;
   }
+
+  static removeError(state: ErrorState, id: number): ErrorState {
+    if (Util.notNil(state.last) && state.last.id === id) {
+      return {
+        ...state,
+        last: null,
+      };
+    }
+    return {
+      ...state,
+      list: state.list.filter(err => err.id !== id),
+    };
+  }
 }

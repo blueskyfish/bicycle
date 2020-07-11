@@ -12,6 +12,17 @@
       "message": {
         "title": "Registrieren",
         "text": "Oder einen neuen Account erstellen ..."
+      },
+      "error": {
+        "title": "Fehler bei Anmeldung"
+      }
+    },
+    "error": {
+      "server": {
+        "login": "Beim Anmeldung ist ein unbekannter Fehler mit dem Server aufgetretten"
+      },
+      "user": {
+        "notFound": "Die Kombination von E-Mail und Passwort stimmt nicht. Bitte korregieren Sie Ihre Eingaben"
       }
     }
   }

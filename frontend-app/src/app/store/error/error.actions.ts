@@ -7,4 +7,9 @@ export class ErrorActions {
     '[Error] append error',
     props<{payload: Partial<ErrorMessage>}>()
   )
+
+  static readonly removeError = createAction(
+    '[Error] remove error',
+    props<{id: number}>()
+  )
 }

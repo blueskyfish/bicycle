@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PictureBicycleComponent } from './components';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MessageBoxComponent, PictureBicycleComponent } from './components';
 
 const elementComponents: any[] = [
+  MessageBoxComponent,
   PictureBicycleComponent,
 ]
 
@@ -12,10 +15,13 @@ const elementComponents: any[] = [
     ...elementComponents,
   ],
   exports: [
-    PictureBicycleComponent
+    ...elementComponents,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+
+    MatIconModule,
+    MatButtonModule,
   ]
 })
 export class BikeElementsModule { }
