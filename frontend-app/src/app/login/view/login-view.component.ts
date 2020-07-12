@@ -44,8 +44,8 @@ export class LoginViewComponent implements OnInit {
         select(ErrorSelectors.getLastError),
       )
       .subscribe((err) => {
-        console.log('> debug: Error =>', err);
-        this.errorId = Util.notNil(err) ? err.id : null,
+        // console.log('> debug: Error =>', err);
+        this.errorId = Util.notNil(err) ? err.id : null;
         this.errorCode = Util.notNil(err) ? ['app.error', err.group, err.code].join('.') : null;
       });
   }
