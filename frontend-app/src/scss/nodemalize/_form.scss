@@ -3,18 +3,9 @@
   @include display-flex(column);
   padding: $full-gap;
 
-  &.layout-medium {
-    width: 100%;
-  }
-
-  &.layout-large {
-    width: 70%;
-    min-width: 70%;
-    max-width: 80%;
-
-    &.center {
-      margin: 0 auto;
-    }
+  @include device-large() {
+    width: 750px;
+    margin: 0 auto;
   }
 
   .form-field {
@@ -33,20 +24,6 @@
     }
   }
 
-  .message {
-    padding: $full-gap $full-gap 0;
-    border-radius: $border-radius-small;
-
-    &.info {
-      background-color: mat-color($mat-yellow, 100);
-      border: $border solid mat-color($mat-yellow, 500);
-    }
-
-    &.warn {
-      background-color: mat-color($mat-red, 100);
-      border: $border solid mat-color($mat-red, 500);
-    }
-  }
 }
 
 input[type=date]::-webkit-inner-spin-button {
