@@ -17,10 +17,25 @@
         "title": "Fehler bei Anmeldung"
       }
     },
+    "register-view": {
+      "title": "Einen neuen Account erstellen",
+      "command": {
+        "register": "Registrieren"
+      },
+      "message": {
+        "title": "Anmelden",
+        "text": "Oder im vorhandenen Account einloggen ..."
+      },
+      "error": {
+        "title": "Fehler beim Registrieren"
+      }
+    },
     "error": {
       "server": {
-        "login": "Beim Anmeldung ist ein unbekannter Fehler mit dem Server aufgetreten.",
-        "register": "Beim Registrieren is ein unbekannter Fehler mit dem Server aufgetreten."
+        "user": {
+          "login": "Beim Anmeldung ist ein unbekannter Fehler mit dem Server aufgetreten.",
+          "register": "Beim Registrieren is ein unbekannter Fehler mit dem Server aufgetreten."
+        }
       },
       "user": {
         "notFound": "Die Kombination von E-Mail und Passwort stimmt nicht. Bitte korregieren Sie Ihre Eingaben",

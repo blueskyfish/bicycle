@@ -5,7 +5,7 @@ import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { BikeLoginPayload } from '../../backend';
 import { Util } from '../../common/util';
-import { ErrorActions, ErrorSelectors } from '../../store/error';
+import { buildErrorCode, ErrorActions, ErrorSelectors } from '../../store/error';
 import { StoreState } from '../../store/store.state';
 import { UserActions } from '../../store/user/user.actions';
 
@@ -46,7 +46,7 @@ export class LoginViewComponent implements OnInit {
       .subscribe((err) => {
         // console.log('> debug: Error =>', err);
         this.errorId = Util.notNil(err) ? err.id : null;
-        this.errorCode = Util.notNil(err) ? ['app.error', err.group, err.code].join('.') : null;
+        this.errorCode = buildErrorCode(err);
       });
   }
 

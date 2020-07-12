@@ -2,6 +2,7 @@ import { HttpErrorResponse, HttpResponseBase } from '@angular/common/http';
 import { TypedAction } from '@ngrx/store/src/models';
 import { Observable, of } from 'rxjs';
 import { BikeErrorBody } from '../../backend';
+import { Util } from '../../common/util';
 import { ErrorActions } from './error.actions';
 import { ErrorMessage } from './error.state';
 
@@ -95,4 +96,13 @@ export function errorHandler(serverCode: string) {
     };
     return of(ErrorActions.appendError({payload}));
   };
+}
+
+/**
+ * Builds the translate key from the error message
+ * @param {ErrorMessage} err the error message or null
+ * @returns {string} the translate key or null
+ */
+export function buildErrorCode(err?: Partial<ErrorMessage>): string {
+  return Util.notNil(err) ? ['app.error', err.group, err.code].join('.') : null;
 }
