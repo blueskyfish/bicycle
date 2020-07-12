@@ -1,0 +1,34 @@
+
+@import "~src/scss/bicycle";
+
+:host {
+  @include flex-fixed();
+
+  .title-bar {
+    @include display-flex(row);
+    @include flex-resizable();
+    @include notch-left($half-gap);
+    @include notch-top($half-gap);
+    @include notch-right($half-gap);
+    align-items: center;
+    padding-bottom: $half-gap;
+
+    .command {
+      @include flex-fixed();
+
+      &.left {
+        margin-right: $half-gap;
+      }
+
+      &.right {
+        margin-left: $half-gap;
+      }
+    }
+
+    .title {
+      @include flex-resizable();
+      @include nowrapWithEllipsis();
+      margin: 0;
+    }
+  }
+}
