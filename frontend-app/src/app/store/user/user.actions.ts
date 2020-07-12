@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { BikeLoginPayload, BikeUserInfo } from '../../backend';
+import { BikeLoginPayload, BikeRegisterPayload, BikeUserInfo } from '../../backend';
 
 export class UserActions {
 
@@ -7,6 +7,11 @@ export class UserActions {
     '[User] login user',
     props<{payload: BikeLoginPayload}>()
   );
+
+  static registerUser = createAction(
+    '[User] register user',
+    props<{payload: BikeRegisterPayload}>()
+  )
 
   static updateUser = createAction(
     '[User] update user',

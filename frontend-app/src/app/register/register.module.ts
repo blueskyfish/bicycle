@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { BikeElementsModule } from '../elements/elements.module';
 import { RegisterViewComponent } from './view/register-view.component';
 
@@ -23,6 +24,8 @@ import { RegisterViewComponent } from './view/register-view.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+
+    TranslateModule,
 
     MatIconModule,
     MatFormFieldModule,

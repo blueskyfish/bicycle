@@ -2,6 +2,11 @@
 export interface BikeRegisterPayload {
 
   /**
+   * The access code
+   */
+  accessCode: string;
+
+  /**
    * The user email
    */
   email: string;
@@ -20,9 +25,4 @@ export interface BikeRegisterPayload {
    * The user password as repeat
    */
   repeat: string;
-
-  /**
-   * The list of roles
-   */
-  roles: Array<string>;
 }

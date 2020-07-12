@@ -49,6 +49,36 @@ export class UserEffectService {
     )
   );
 
+  readonly registerAndUpdateUser$ = createEffect(() => this.actions$
+    .pipe(
+      ofType(UserActions.registerUser),
+      switchMap(action => {
+        return this.userService.register({body: action.payload})
+          .pipe(
+            mergeMap(user => {
+              // Update the user token
+              this.authService.updateToken(user.token);
+
+              return of(
+                UserActions.updateUser({
+                  user: {
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    roles: user.roles,
+                  }
+                }),
+                RouteActions.navigate({
+                  paths: [RouteNames.Root, RouteNames.Home]
+                }),
+              );
+            }),
+            catchError(errorHandler('user.register')),
+          )
+      })
+    )
+  );
+
   readonly loadAndUpdateUser$ = createEffect(() => this.actions$
     .pipe(
       ofType(ROOT_EFFECTS_INIT),
