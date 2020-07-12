@@ -12,11 +12,11 @@
     </bike-message-box>
     <mat-form-field class="form-field">
       <mat-label>{{ 'app.login-view.label.email' | translate }}</mat-label>
-      <input matInput class="form-control" formControlName="email">
+      <input type="text" matInput class="form-control" formControlName="email" required>
     </mat-form-field>
     <mat-form-field class="form-field">
       <mat-label>{{ 'app.login-view.label.password' | translate }}</mat-label>
-      <input matInput class="form-control" formControlName="password">
+      <input type="password" matInput class="form-control" formControlName="password" required>
     </mat-form-field>
     <div class="command-bar">
       <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">
