@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import * as _ from 'lodash';
 import { PasswordService } from '../../auth/password';
 import { TokenService } from '../../auth/token';
 import { AuthUser } from '../../auth/user';
@@ -100,13 +101,31 @@ export class UserService {
         throw UserError.mailAlreadyUse();
       }
 
+      const isUser = (await rep.setting.getSetting('access.code.user')).asString === payload.accessCode;
+      const isAdmin = (await rep.setting.getSetting('access.code.admin')).asString === payload.accessCode;
+
+      const roles: string[] = [];
+
+      if (isAdmin || isUser) {
+        roles.push('user');
+      }
+      if (isAdmin) {
+        roles.push('admin');
+      }
+
+      if (_.size(roles) === 0) {
+        throw UserError.accessCodeInvalid();
+      }
+
+      // stringify the roles array
+      const rolesString = JSON.stringify(roles);
       try {
         await rep.startTransaction();
 
         const values: IDbInsertUser = {
           name: payload.name,
           email: payload.email,
-          roles: JSON.stringify(payload.roles),
+          roles: rolesString,
           password: this.passwordService.generatePassword(payload.password),
         };
         const dbUserId = await rep.user.insertUser(values);
@@ -127,6 +146,7 @@ export class UserService {
           id: dbUser.userId,
           name: dbUser.name,
           email: dbUser.email,
+          roles,
           token,
         } as LoginUser;
 

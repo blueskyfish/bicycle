@@ -30,4 +30,8 @@ export class UserError extends CommonError {
   static passwordFailure(): UserError {
     return new UserError('passwordFailure', 'User password change is failed');
   }
+
+  static accessCodeInvalid(): UserError {
+    return new UserError('accessCodeInvalid', 'Access code is invalid');;
+  }
 }

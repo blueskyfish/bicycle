@@ -10,11 +10,4 @@ export class LoginUser extends UserInfo {
     description: 'This is the user token for his authentication at protected endpoints'
   })
   token: string;
-
-  @ApiProperty({
-    description: 'The roles of the user',
-    isArray: true,
-    type: String,
-  })
-  roles: string[];
 }

@@ -1,5 +1,6 @@
 import { IDatabaseConnection } from '../../common/database/kind';
 import { IRepository } from './repository';
+import { SettingRepository } from './setting/setting.repository';
 import { UserRepository } from './user';
 
 /**
@@ -8,6 +9,7 @@ import { UserRepository } from './user';
 export class RepositoryPool implements IRepository {
 
   private _userRepository: UserRepository = null;
+  private _settingRepository: SettingRepository = null;
 
   constructor(private _conn: IDatabaseConnection) {
   }
@@ -24,6 +26,16 @@ export class RepositoryPool implements IRepository {
   get user(): UserRepository {
     return !this._userRepository ?
       (this._userRepository = new UserRepository(this.conn)) : this._userRepository;
+  }
+
+  /**
+   * The sub repository works with the setting entities.
+   *
+   * @returns {SettingRepository}
+   */
+  get setting(): SettingRepository {
+    return !this._settingRepository ?
+      (this._settingRepository = new SettingRepository(this.conn)) : this._settingRepository;
   }
 
   /**
@@ -53,6 +65,10 @@ export class RepositoryPool implements IRepository {
     if (this._userRepository) {
       this._userRepository.close();
       this._userRepository = null;
+    }
+    if (this._settingRepository) {
+      this._settingRepository.close();
+      this._settingRepository = null;
     }
   }
 }
