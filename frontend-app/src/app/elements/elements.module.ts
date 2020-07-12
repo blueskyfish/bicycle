@@ -14,9 +14,6 @@ const elementComponents: any[] = [
   declarations: [
     ...elementComponents,
   ],
-  exports: [
-    ...elementComponents,
-  ],
   imports: [
     CommonModule,
 
