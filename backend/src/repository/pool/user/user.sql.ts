@@ -29,7 +29,7 @@ export const SQL_FIND_USER_BY_ID = [
 export const SQL_FIND_USER_FROM_EMAIL = [
   'SELECT `user_id` AS userId', NL,
   'FROM ', RepositoryNames.Users, NL,
-  'WHERE `email` = {email}'
+  'WHERE LOWER(`email`) = LOWER({email})'
 ].join('');
 
 /**
