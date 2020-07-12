@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WithProtectedRouteGuard } from './common/guard/with-protected-route-guard.service';
 import { WithoutProtectedRouteGuard } from './common/guard/without-protected-route.guard';
 import { BikeDashboardModule } from './dashboard/dashboard.module';
-import { HomeViewComponent } from './dashboard/views/home-view/home-view.component';
+import { DashboardViewComponent, HomeViewComponent } from './dashboard/views';
 import { BikeLoginModule } from './login/login.module';
 import { LoginViewComponent } from './login/view/login-view.component';
 import { BikeRegisterModule } from './register/register.module';
@@ -30,6 +30,12 @@ const routes: Routes = [
     canActivate: [
       WithProtectedRouteGuard,
     ],
+    children: [
+      {
+        path: '',
+        component: DashboardViewComponent
+      }
+    ]
   },
   {
     path: '',
