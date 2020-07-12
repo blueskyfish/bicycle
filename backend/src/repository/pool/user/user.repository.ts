@@ -42,8 +42,8 @@ export class UserRepository extends SubRepository {
    * @returns {Promise<boolean>} `true` means the email exist and in use
    */
   async emailExists(email: string): Promise<boolean> {
-    const result = this.conn.selectOne<{userId: number}>(SQL_FIND_USER_FROM_EMAIL, {email});
-    return !_.isNil(result) && ValidUtil.isPositiv(result);
+    const result = await this.conn.selectOne<{userId: number}>(SQL_FIND_USER_FROM_EMAIL, {email});
+    return !_.isNil(result) && ValidUtil.isPositiv(result.userId);
   }
 
   /**
