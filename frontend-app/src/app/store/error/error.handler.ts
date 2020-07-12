@@ -5,26 +5,39 @@ import { BikeErrorBody } from '../../backend';
 import { ErrorActions } from './error.actions';
 import { ErrorMessage } from './error.state';
 
+/**
+ * The server error group name
+ */
 export const SERVER_ERROR_GROUP = 'server';
 
-export class ErrorId {
+/**
+ * Generator for the error id.
+ */
+export const errorIdGen = {
 
-  private _nextId = 0;
+  /**
+   * The internal property for the next id.
+   */
+  value: 0,
 
   get nextId(): number {
-    return ++this._nextId;
+    return ++this.value;
   }
 }
 
-export const errorId = new ErrorId();
-
+/**
+ * Handler for catch an error / exception during a http request.
+ *
+ * @param {string} serverCode the server error code
+ * @returns {(reason) => Observable<TypedAction<any>>}
+ */
 export function errorHandler(serverCode: string) {
   return (reason): Observable<TypedAction<any>> => {
 
     if (reason instanceof HttpErrorResponse) {
 
       let payload: Partial<ErrorMessage> = {
-        id: errorId.nextId,
+        id: errorIdGen.nextId,
         status: reason.status,
       };
 
@@ -49,7 +62,7 @@ export function errorHandler(serverCode: string) {
 
     } else if (reason instanceof HttpResponseBase) {
       const payload: Partial<ErrorMessage> = {
-        id: errorId.nextId,
+        id: errorIdGen.nextId,
         status: reason.status,
         group: SERVER_ERROR_GROUP,
         code: serverCode,
@@ -63,7 +76,7 @@ export function errorHandler(serverCode: string) {
 
     } else if (reason instanceof Error) {
       const payload: Partial<ErrorMessage> = {
-        id: errorId.nextId,
+        id: errorIdGen.nextId,
         status: 500,
         group: SERVER_ERROR_GROUP,
         code: serverCode,
@@ -72,8 +85,9 @@ export function errorHandler(serverCode: string) {
       return of(ErrorActions.appendError({payload}));
     }
 
+    // default error message
     const payload: Partial<ErrorMessage> = {
-      id: errorId.nextId,
+      id: errorIdGen.nextId,
       status: 500,
       group: SERVER_ERROR_GROUP,
       code: serverCode,
