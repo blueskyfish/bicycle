@@ -8,7 +8,7 @@ import { NL, RepositoryNames } from '../repository.names';
 export const SQL_FIND_USER_BY_EMAIL = [
   'SELECT `user_id` as userId, `name`, `email`, `roles`, `password`', NL,
   'FROM ', RepositoryNames.Users, NL,
-  'WHERE `email` = {email}'
+  'WHERE LOWER(`email`) = LOWER({email})'
 ].join('');
 
 /**
