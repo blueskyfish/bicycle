@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsEmail, MinLength, ValidateIf } from 'class-validator';
+import { IsEmail, MinLength, ValidateIf } from 'class-validator';
 
 /**
  * Register a new user.
@@ -35,12 +35,10 @@ export class RegisterPayload {
   })
   repeat: string;
 
-  @IsArray()
+  @MinLength(1)
   @ApiProperty({
-    description: 'The list of roles',
+    description: 'The access code',
     required: true,
-    isArray: true,
-    type: String,
   })
-  roles: string[];
+  accessCode: string;
 }

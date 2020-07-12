@@ -79,6 +79,13 @@ export class DateUtil {
     return DateUtil.fromDate('1970-01-01');
   }
 
+  static toDate(v: string | Moment): Date {
+    if (moment.isMoment(v)) {
+      return v.toDate();
+    }
+    return moment(v, DATE_FORMAT).toDate();
+  }
+
   /**
    * Repeat until the callback is return `null`.
    *
