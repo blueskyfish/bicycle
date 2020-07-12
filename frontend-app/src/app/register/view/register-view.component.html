@@ -11,28 +11,28 @@
       *ngIf="errorCode"><p>{{ errorCode | translate }}</p>
     </bike-message-box>
     <mat-form-field class="form-field">
-      <mat-label>Name</mat-label>
-      <input matInput class="form-control" formControlName="name">
+      <mat-label>{{ 'app.register-view.label.name' | translate }}</mat-label>
+      <input type="text" matInput class="form-control" formControlName="name" required>
     </mat-form-field>
     <mat-form-field class="form-field">
-      <mat-label>E-Mail</mat-label>
-      <input matInput class="form-control" formControlName="email">
+      <mat-label>{{ 'app.register-view.label.email' | translate }}</mat-label>
+      <input type="text" matInput class="form-control" formControlName="email" required>
     </mat-form-field>
     <mat-form-field class="form-field">
-      <mat-label>Passwort</mat-label>
-      <input type="password" matInput class="form-control" formControlName="password">
+      <mat-label>{{ 'app.register-view.label.password' | translate }}</mat-label>
+      <input type="password" matInput class="form-control" formControlName="password" required>
     </mat-form-field>
     <mat-form-field class="form-field">
-      <mat-label>Wiederholung</mat-label>
-      <input type="password" matInput class="form-control" formControlName="repeat">
+      <mat-label>{{ 'app.register-view.label.repeat' | translate }}</mat-label>
+      <input type="password" matInput class="form-control" formControlName="repeat" required>
     </mat-form-field>
     <mat-form-field class="form-field">
-      <mat-label>Einladungscode</mat-label>
-      <input matInput class="form-control" formControlName="accessCode">
+      <mat-label>{{ 'app.register-view.label.accessCode' | translate }}</mat-label>
+      <input type="text" matInput class="form-control" formControlName="accessCode" required>
     </mat-form-field>
     <div class="form-field">
       <mat-checkbox formControlName="term" color="primary">
-        Bedingungen und Konditionen
+        {{ 'app.register-view.label.term' | translate }}
       </mat-checkbox>
     </div>
     <div class="command-bar">
