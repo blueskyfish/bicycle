@@ -19,10 +19,15 @@
     },
     "error": {
       "server": {
-        "login": "Beim Anmeldung ist ein unbekannter Fehler mit dem Server aufgetretten"
+        "login": "Beim Anmeldung ist ein unbekannter Fehler mit dem Server aufgetreten.",
+        "register": "Beim Registrieren is ein unbekannter Fehler mit dem Server aufgetreten."
       },
       "user": {
-        "notFound": "Die Kombination von E-Mail und Passwort stimmt nicht. Bitte korregieren Sie Ihre Eingaben"
+        "notFound": "Die Kombination von E-Mail und Passwort stimmt nicht. Bitte korregieren Sie Ihre Eingaben",
+        "existEmail": "Die E-Mail Adresse wird von jemand anderen schon benutzt. Bitte eine andere E-Mail verwendent.",
+        "register": "Die Registrierung ist fehlgeschlagen. Probieren Sie es etwas später noch einmal.",
+        "passwordFailure": "Das Passwort ändern ist fehlgeschlagen.",
+        "accessCodeInvalid": "Der Einladungscode ist leider nicht bekannt. Bitte geben Sie den korrekten Code ein."
       }
     }
   }
