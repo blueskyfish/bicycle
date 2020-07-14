@@ -36,6 +36,7 @@ import { BikeStoreModule } from './store/store.module';
     BikeStoreModule,
     BikeCommonModule.forRoot(localStorage, {
       backendApi: environment.backendApi,
+      disableClose: false, // tab on backdrop is cancel the dialog
     }),
     BikeBackendModule.forRoot({
       rootUrl: environment.backendApi,
