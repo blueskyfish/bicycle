@@ -1,0 +1,11 @@
+@import "~src/scss/bicycle";
+
+@include on-host(column) {
+
+  .bicycle-list {
+    @include flex-resizable();
+    @include display-flex(column);
+    @include notch-body();
+    overflow: auto;
+  }
+}

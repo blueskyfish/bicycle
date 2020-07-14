@@ -5,9 +5,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TitleBarComponent } from './components/title-bar/title-bar.component';
-import { DashboardViewComponent, HomeViewComponent } from './views';
+import { BicycleListViewComponent, DashboardViewComponent, HomeViewComponent } from './views';
 
 const dashboardViews: any[] = [
+  BicycleListViewComponent,
   DashboardViewComponent,
   HomeViewComponent,
 ];
@@ -32,6 +33,10 @@ const dashboardComponents: any[] = [
 
     MatButtonModule,
     MatIconModule,
+  ],
+  exports: [
+    ...dashboardViews,
+    ...dashboardComponents,
   ]
 })
 export class BikeDashboardModule { }
